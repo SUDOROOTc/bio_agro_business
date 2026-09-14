@@ -37,3 +37,34 @@
       setTimeout(function(){ el.classList.add('in'); }, 120);
     });
   });
+
+
+
+
+
+// --- Formulaire de devis -> WhatsApp ---
+(function(){
+  var form = document.getElementById("quoteForm");
+  if(!form) return;
+  var typeMap = { consommation: "Consommation directe / distribution", industrie: "Industrie / transformation", "les-deux": "Les deux" };
+  var qMap = { "moins-250kg": "Moins de 250 kg", "250-1000kg": "250 kg - 1 tonne", "1-5t": "1 - 5 tonnes", "plus-5t": "Plus de 5 tonnes" };
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var fd = new FormData(form);
+    var parts = [];
+    function v(k){ var s = fd.get(k); return s ? String(s).trim() : ""; }
+    if(v("nom")) parts.push("Nom : " + v("nom"));
+    if(v("entreprise")) parts.push("Entreprise : " + v("entreprise"));
+    if(v("email")) parts.push("Email : " + v("email"));
+    if(v("telephone")) parts.push("Téléphone : " + v("telephone"));
+    var prods = fd.getAll("produit");
+    if(prods.length) parts.push("Produits souhaités : " + prods.join(", "));
+    var tp = fd.get("type"); if(tp && typeMap[tp]) parts.push("Type de besoin : " + typeMap[tp]);
+    var q = fd.get("quantite"); if(q && qMap[q]) parts.push("Quantité estimée : " + qMap[q]);
+    if(v("pays")) parts.push("Pays de destination : " + v("pays"));
+    if(v("message")) parts.push("Besoins : " + v("message"));
+    var body = "Bonjour BIO Agro Business, voici ma demande de devis :" + "\n" + parts.join("\n");
+    var url = "https://wa.me/22672471906?text=" + encodeURIComponent(body);
+    window.open(url, "_blank");
+  });
+})();
