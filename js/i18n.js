@@ -30,7 +30,7 @@ window.I18N = {
     c_title: "Let's build your next export order.",
     c_sub: "Tell us the product, quantity and destination you have in mind. We will come back with a clear, tailored quote.",
     f_name: "Name", f_company: "Company", f_country: "Country", f_product: "Product",
-    f_all: "Other or several agricultural products", f_qty: "Desired quantity", f_send: "Send my request",
+    f_all: "Other or several agricultural products", f_qty: "Desired quantity", f_description: "Describe your request", f_send: "Send my request",
     ft_tag: "Selected agricultural products, for international export.",
     hero_eyebrow: "NOVARIX · AGRICULTURAL EXPORT",
     hero_subline: "Cashew nuts, dried mango and sesame are our references. Products selected at source, with room to study other agricultural needs.",

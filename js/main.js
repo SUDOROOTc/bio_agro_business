@@ -4,7 +4,7 @@
 
   /* Contact channels. Fill at least one: the form and the floating button use them.
      whatsapp: international number without + or spaces (e.g. '226XXXXXXXX'). email: 'contact@...' */
-  const CONFIG = { whatsapp: '', email: '' };
+  const CONFIG = { whatsapp: '22672471906', email: '' };
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
